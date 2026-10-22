@@ -402,7 +402,7 @@ class Game {
 
     if (this.save.tide > 1) {
       $('#btnContinue').hidden = false;
-      $('#continueSub').textContent = T.roman(this.save.tide) + '번째 밀물 — ' +
+      $('#continueSub').textContent = this.save.tide + '번째 밀물 — ' +
         (T.TIDES[this.save.tide - 1] ? T.TIDES[this.save.tide - 1].name : '');
     }
     $('#menuGpu').textContent = String(this.gpuName).slice(0, 46);
@@ -478,7 +478,7 @@ class Game {
     const t = T.TOOLS.find(x => x.id === id);
     if (!t) return;
     if (this.mode === 'novena' && t.unlock > this.tideIdx + 1) {
-      this.toast(t.name + '은(는) ' + T.roman(t.unlock) + '번째 밀물에서 열립니다.', 'bad');
+      this.toast(t.name + '은(는) ' + t.unlock + '번째 밀물에서 열립니다.', 'bad');
       return;
     }
     this.tool = t;
@@ -903,7 +903,7 @@ class Game {
     const t = this.tide();
     this.state = 'brief';
     this.resetField();
-    $('#bNum').textContent = T.roman(t.n) + '번째 밀물';
+    $('#bNum').textContent = t.n + '번째 밀물';
     $('#bName').textContent = t.name;
     $('#bVerse').textContent = t.verse;
     const lowZ = (1.55 - t.low) / 0.0705 - 24;
@@ -1043,7 +1043,7 @@ class Game {
     this.show('#menu');
     if (this.save.tide > 1) {
       $('#btnContinue').hidden = false;
-      $('#continueSub').textContent = T.roman(this.save.tide) + '번째 밀물 — ' +
+      $('#continueSub').textContent = this.save.tide + '번째 밀물 — ' +
         (T.TIDES[this.save.tide - 1] ? T.TIDES[this.save.tide - 1].name : '');
     }
   }
