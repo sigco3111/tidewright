@@ -83,9 +83,9 @@ class Game {
     const opts = { antialias: false, alpha: false, depth: true, stencil: false,
                    powerPreference: 'high-performance', preserveDrawingBuffer: false };
     const gl = this.gl = this.canvas.getContext('webgl2', opts);
-    if (!gl) { this.fatal('This browser did not give us a WebGL2 context.'); return; }
+    if (!gl) { this.fatal('이 브라우저에서 WebGL2를 사용할 수 없습니다.'); return; }
     if (!gl.getExtension('EXT_color_buffer_float')) {
-      this.fatal('EXT_color_buffer_float is missing — the simulation needs float render targets.');
+      this.fatal('EXT_color_buffer_float가 없습니다. 시뮬레이션에는 부동소수점 렌더 타깃이 필요합니다.');
       return;
     }
     gl.getExtension('OES_texture_float_linear');
@@ -181,21 +181,21 @@ class Game {
     const gl = this.gl;
     const q = this.qualityCfg();
     this.cfg = q;
-    this.progress(10, 'shaping the bedrock');
+    this.progress(10, '기반암을 빚는 중');
     this.sky = new T.Sky(gl);
     this.sky.setSun(16, 104);
     this.sky.cloud = T.TIDES[0].cloud;
-    this.progress(25, 'sorting the grains');
+    this.progress(25, '모래알을 고르는 중');
     this.sim = new T.Sim(gl, q.sim);
-    this.progress(45, 'displacing the sand');
+    this.progress(45, '모래를 옮기는 중');
     this.terrain = new T.Terrain(gl, this.sim, q.grid, Math.min(256, q.grid));
-    this.progress(60, 'filling the bay');
+    this.progress(60, '만을 채우는 중');
     this.water = new T.Water(gl, this.sim, q.water);
-    this.progress(72, 'whittling driftwood');
+    this.progress(72, '유목을 깎는 중');
     this.props = new T.Props(gl, this.sim);
-    this.progress(82, 'throwing sand in the air');
+    this.progress(82, '모래를 공중에 뿌리는 중');
     this.particles = new T.Particles(gl, this.sim);
-    this.progress(90, 'grading the light');
+    this.progress(90, '빛을 보정하는 중');
     this.post = new T.Post(gl);
 
     this.shadowRes = q.shadow;
@@ -213,7 +213,7 @@ class Game {
       windVec: this.windVec, lightVP: this.lightVP, shadowTex: this.shadow.depth,
       shadowRes: q.shadow, shadowOn: true
     };
-    this.progress(100, 'the water is out');
+    this.progress(100, '물이 빠졌다');
     this.resize();
     this.sim.reset(this.seaBase);
     for (let i = 0; i < 24; i++) this.sim.step(this.env, 1 / 60);
@@ -337,10 +337,10 @@ class Game {
     $('#pSave').onclick = () => self.saveCastle();
     $('#pLoad').onclick = () => self.loadCastle();
     $('#setWipe').onclick = () => {
-      if (confirm('Erase all progress and saved castles?')) {
+      if (confirm('모든 진행 상황과 저장된 성을 지울까요?')) {
         T.store.del('tw.save'); T.store.del('tw.castle'); T.store.del('tw.taught');
         self.save = { tide: 1, best: 0, codex: [], totals: 0 };
-        self.toast('The shore has forgotten you.', 'bad');
+        self.toast('해변이 당신을 잊었다.', 'bad');
       }
     };
     $('#pExit').onclick = () => self.setPhoto(false);
@@ -357,7 +357,7 @@ class Game {
     bind('#sRad', v => { this.radius = v / 100; }, v => $('#vRad').textContent = (v / 100).toFixed(2) + ' m');
     bind('#sStr', v => { this.strength = v / 100; }, v => $('#vStr').textContent = Math.round(v) + '%');
     bind('#sTh', v => { this.towerH = v / 100; }, v => $('#vTh').textContent = (v / 100).toFixed(2) + ' m');
-    bind('#sCr', v => { this.merlons = v; }, v => $('#vCr').textContent = (+v === 0 ? 'none' : v));
+    bind('#sCr', v => { this.merlons = v; }, v => $('#vCr').textContent = (+v === 0 ? '없음' : v));
     this.pickMould(0);
 
     const S = this.settings;
@@ -402,7 +402,7 @@ class Game {
 
     if (this.save.tide > 1) {
       $('#btnContinue').hidden = false;
-      $('#continueSub').textContent = 'Tide ' + T.roman(this.save.tide) + ' — ' +
+      $('#continueSub').textContent = T.roman(this.save.tide) + '번째 밀물 — ' +
         (T.TIDES[this.save.tide - 1] ? T.TIDES[this.save.tide - 1].name : '');
     }
     $('#menuGpu').textContent = String(this.gpuName).slice(0, 46);
@@ -427,7 +427,7 @@ class Game {
     this.audio.setVolumes(S.vol / 100, S.mus / 100);
     const q = this.qualityCfg();
     if (this.cfg && q.sim !== this.cfg.sim && !this.pendingQuality) {
-      this.toast('Reload the page to apply the new simulation resolution.', '');
+      this.toast('새 시뮬레이션 해상도를 적용하려면 페이지를 새로고침하세요.', '');
       this.pendingQuality = true;
     }
     this.resize();
@@ -459,9 +459,9 @@ class Game {
     if (T.store.get('tw.taught', false)) return;
     T.store.set('tw.taught', true);
     const lines = [
-      ['Dig first. Every grain you build with comes out of a hole you made.', 'lore'],
-      ['Wet sand stands, dry sand slumps. The readout at your cursor tells you which you have.', ''],
-      ['Hold the Mould on damp sand to fill it, then click where you want it.', 'good']
+      ['먼저 파세요. 쌓는 모래알은 모두 직접 판 구덩이에서 나옵니다.', 'lore'],
+      ['젖은 모래는 서고 마른 모래는 무너집니다. 커서 옆 수치가 지금 상태를 알려 줍니다.', ''],
+      ['촉촉한 모래 위에서 틀을 누르고 있어 채운 뒤, 원하는 곳을 클릭하세요.', 'good']
     ];
     lines.forEach((l, i) => setTimeout(() => this.toast(l[0], l[1]), 1200 + i * 4200));
   }
@@ -478,7 +478,7 @@ class Game {
     const t = T.TOOLS.find(x => x.id === id);
     if (!t) return;
     if (this.mode === 'novena' && t.unlock > this.tideIdx + 1) {
-      this.toast(t.name + ' comes with tide ' + T.roman(t.unlock) + '.', 'bad');
+      this.toast(t.name + '은(는) ' + T.roman(t.unlock) + '번째 밀물에서 열립니다.', 'bad');
       return;
     }
     this.tool = t;
@@ -492,7 +492,7 @@ class Game {
     $('#optShort').textContent = t.short || '';
     $('#optDesc').textContent = t.desc;
     const tag = $('#optTag');
-    tag.textContent = t.moves > 0 ? 'adds sand' : (t.moves < 0 ? 'takes sand' : 'no sand');
+    tag.textContent = t.moves > 0 ? '모래를 더한다' : (t.moves < 0 ? '모래를 푼다' : '모래 변화 없음');
     tag.className = 'opt-tag ' + (t.moves > 0 ? 'adds' : (t.moves < 0 ? 'takes' : 'none'));
     const isMould = t.id === 'bucket', isAdorn = t.id === 'adorn';
     $('#stampOpts').style.display = isMould ? '' : 'none';
@@ -623,7 +623,7 @@ class Game {
       const k = e.key.toLowerCase();
       const tool = T.TOOLS.find(t => t.key === e.key);
       if (tool) { self.pickTool(tool.id); return; }
-      if (k === 'z') { if (self.sim.undo()) { self.toast('Undone.', ''); self.audio.ui(false); } }
+      if (k === 'z') { if (self.sim.undo()) { self.toast('되돌렸습니다.', ''); self.audio.ui(false); } }
       else if (k === '[') { self.radius = T.clamp(self.radius * 0.85, 0.15, 4.5); $('#sRad').value = Math.round(self.radius*100); $('#vRad').textContent = self.radius.toFixed(2)+' m'; }
       else if (k === ']') { self.radius = T.clamp(self.radius * 1.18, 0.15, 4.5); $('#sRad').value = Math.round(self.radius*100); $('#vRad').textContent = self.radius.toFixed(2)+' m'; }
       else if (k === ',' || k === '.') {
@@ -670,7 +670,7 @@ class Game {
       const M = this.mould, def = this.mouldDef();
       if (M.fill < 1) return;                       // keep holding — applyTool scoops
       if (this.pailShown() < 0.12) {
-        this.toast('There is no sand left to give. Dig somewhere.', 'bad');
+        this.toast('더 줄 모래가 없습니다. 어딘가를 파세요.', 'bad');
         this.toolDown = false; return;
       }
       this.sim.setStamp(h.x, h.z, this.radius, this.towerH, this.merlons, h.y,
@@ -680,9 +680,9 @@ class Game {
       this.particles.burst(3, h.x, h.y + 0.15, h.z, 9, 0.6, 1.5, 0.15, 0.5);
       this.flags.towers = (this.flags.towers || 0) + 1;
       if (M.wet < def.wet - 0.14)
-        this.toast('Too dry to hold its shape. Wet the sand before you fill.', 'bad');
+        this.toast('너무 말라서 모양을 유지하지 못합니다. 채우기 전에 모래를 적시세요.', 'bad');
       else if (M.wet > 0.93)
-        this.toast('That was soup. A little less water next time.', 'bad');
+        this.toast('죽이 됐네요. 다음엔 물을 조금 줄이세요.', 'bad');
       M.fill = 0; M.wet = 0;
       this.toolDown = false;
       return;
@@ -875,7 +875,7 @@ class Game {
     this.show('#hud');
     this.layoutFor('sandbox');
     this.refreshLocks();
-    this.toast('Slack water. A whole day, and nothing is coming for it.', 'lore');
+    this.toast('썰물 사이. 하루 종일, 아무것도 이곳을 노리지 않는다.', 'lore');
     this.firstRun();
   }
 
@@ -895,7 +895,7 @@ class Game {
     this.show('#hud');
     this.layoutFor('sandbox');
     this.refreshLocks();
-    this.toast('Endless sand. Nothing to dig for, nothing coming for it.', 'lore');
+    this.toast('끝없는 모래. 팔 필요도, 노리는 것도 없다.', 'lore');
     this.firstRun();
   }
 
@@ -903,16 +903,16 @@ class Game {
     const t = this.tide();
     this.state = 'brief';
     this.resetField();
-    $('#bNum').textContent = 'TIDE ' + T.roman(t.n);
+    $('#bNum').textContent = T.roman(t.n) + '번째 밀물';
     $('#bName').textContent = t.name;
     $('#bVerse').textContent = t.verse;
     const lowZ = (1.55 - t.low) / 0.0705 - 24;
     const highZ = (1.55 - t.high) / 0.0705 - 24;
-    $('#bReach').textContent = Math.round(lowZ - highZ) + ' m further up';
-    $('#bTime').textContent = Math.round(t.build / 60) + ' min ' + (t.build % 60) + ' s';
+    $('#bReach').textContent = Math.round(lowZ - highZ) + ' m 더 위쪽';
+    $('#bTime').textContent = Math.round(t.build / 60) + '분 ' + (t.build % 60) + '초';
     const el = t.sun[0];
-    $('#bLight').textContent = el > 45 ? 'high morning' : el > 25 ? 'afternoon' :
-      el > 8 ? 'low gold' : el > 0 ? 'sunset' : el > -8 ? 'dusk' : 'dark water';
+    $('#bLight').textContent = el > 45 ? '높은 오전' : el > 25 ? '오후' :
+      el > 8 ? '낮은 황금빛' : el > 0 ? '일몰' : el > -8 ? '황혼' : '어두운 물';
     const ul = $('#bObj'); ul.innerHTML = '';
     t.objs.forEach(o => { const li = document.createElement('li'); li.textContent = o.text; ul.appendChild(li); });
     this.show('#brief');
@@ -928,7 +928,7 @@ class Game {
     this.layoutFor('novena');
     this.refreshLocks();
     this.renderObjectives();
-    this.toast('The water is out. Work.', 'lore');
+    this.toast('물이 빠졌다. 일하자.', 'lore');
     this.firstRun();
   }
 
@@ -964,7 +964,7 @@ class Game {
     this.floodLen = this.tide().flood;
     this.worthAtFlood = Math.max(0, (this.sim.metrics.worth - Math.max(this.worthBase, 0)) * SCORE_SCALE);
     this.audio.bell(147, 0.13, 5.0);
-    this.toast('The tide has turned.', 'bad');
+    this.toast('물때가 바뀌었다.', 'bad');
     $('#tidePhase').classList.add('flood');
     $('.clockbar').classList.add('flood');
   }
@@ -993,14 +993,14 @@ class Game {
     const g = T.grade(stats);
 
     $('#sGrade').textContent = g.g;
-    $('#sTitle').textContent = this.tideIdx === 8 ? 'The ninth water has gone back out.' : 'The water has gone back out.';
+    $('#sTitle').textContent = this.tideIdx === 8 ? '아홉 번째 물이 다시 빠져나갔다.' : '물이 다시 빠져나갔다.';
     $('#sLine').textContent = g.line;
     $('#sStats').innerHTML =
-      cell('Remembrance', stats.worth) +
-      cell('Kept', Math.round(kept * 100) + '%') +
-      cell('Packed', stats.packed.toFixed(1) + ' m³') +
-      cell('Highest', (stats.peakAbove).toFixed(2) + ' m');
-    $('#sObj').innerHTML = '<div class="bh">Asked of you</div><ul>' +
+      cell('기억', stats.worth) +
+      cell('보존', Math.round(kept * 100) + '%') +
+      cell('다진 모래', stats.packed.toFixed(1) + ' m³') +
+      cell('최고 높이', (stats.peakAbove).toFixed(2) + ' m');
+    $('#sObj').innerHTML = '<div class="bh">당신에게 요청된 일</div><ul>' +
       results.map(r => '<li class="' + (r.ok ? 'done' : 'fail') + '">' + r.text + '</li>').join('') + '</ul>';
     $('#sNext').style.display = (this.tideIdx >= T.TIDES.length - 1) ? 'none' : '';
 
@@ -1043,7 +1043,7 @@ class Game {
     this.show('#menu');
     if (this.save.tide > 1) {
       $('#btnContinue').hidden = false;
-      $('#continueSub').textContent = 'Tide ' + T.roman(this.save.tide) + ' — ' +
+      $('#continueSub').textContent = T.roman(this.save.tide) + '번째 밀물 — ' +
         (T.TIDES[this.save.tide - 1] ? T.TIDES[this.save.tide - 1].name : '');
     }
   }
@@ -1051,7 +1051,7 @@ class Game {
   setPaused(p) {
     this.paused = p;
     $('#pause').classList.toggle('hidden', !p);
-    if (p) $('#pauseSub').textContent = this.phase === 'flood' ? 'The water is waiting too.' : 'The shore waits.';
+    if (p) $('#pauseSub').textContent = this.phase === 'flood' ? '물도 기다리고 있다.' : '해변이 기다린다.';
   }
 
   /* ─────────────────────── codex ─────────────────────── */
@@ -1060,7 +1060,7 @@ class Game {
     if (this.save.codex.indexOf(id) < 0) {
       this.save.codex.push(id);
       const e = T.CODEX.find(c => c.id === id);
-      if (e) this.toast('Codex: “' + e.title + '”', 'lore');
+      if (e) this.toast('도감: “' + e.title + '”', 'lore');
       T.store.set('tw.save', this.save);
     }
   }
@@ -1070,7 +1070,7 @@ class Game {
     T.CODEX.forEach(c => {
       const li = document.createElement('li');
       const has = unlocked.indexOf(c.id) >= 0;
-      li.textContent = has ? c.title : '— sealed —';
+      li.textContent = has ? c.title : '— 봉인됨 —';
       li.className = has ? '' : 'locked';
       if (has) li.onclick = () => {
         $$('#codexList li').forEach(x => x.classList.remove('on'));
@@ -1081,7 +1081,7 @@ class Game {
       list.appendChild(li);
     });
     $('#codexRead').innerHTML = '<div class="cr-empty">' +
-      (unlocked.length ? 'Select an entry.' : 'Nothing yet. The shore tells you things as you work.') + '</div>';
+      (unlocked.length ? '항목을 선택하세요.' : '아직 아무것도 없습니다. 작업하다 보면 해변이 이야기를 들려줍니다.') + '</div>';
     this.openOver('#codex');
   }
 
@@ -1108,13 +1108,13 @@ class Game {
         d: btoa(bin), res: D, tide: this.tideIdx + 1,
         props: this.props.list.map(p => [p.type, p.x, p.y, p.z, p.rot, p.scale])
       });
-      this.toast('Castle saved.', 'good');
-    } catch (e) { this.toast('Could not save (storage blocked).', 'bad'); }
+      this.toast('성을 저장했습니다.', 'good');
+    } catch (e) { this.toast('저장할 수 없습니다 (저장소가 차단됨).', 'bad'); }
   }
 
   loadCastle() {
     const c = T.store.get('tw.castle', null);
-    if (!c) { this.toast('No castle saved.', 'bad'); return; }
+    if (!c) { this.toast('저장된 성이 없습니다.', 'bad'); return; }
     try {
       const bin = atob(c.d), D = c.res;
       const u = new Uint8Array(bin.length);
@@ -1134,9 +1134,9 @@ class Game {
       this.sim.baseTotal = -1;
       this.props.clear();
       (c.props || []).forEach(p => this.props.add(p[0], p[1], p[2], p[3], p[4], p[5]));
-      this.toast('Castle restored.', 'good');
+      this.toast('성을 불러왔습니다.', 'good');
       this.setPaused(false);
-    } catch (e) { this.toast('That castle would not come back.', 'bad'); }
+    } catch (e) { this.toast('그 성은 돌아오지 않았다.', 'bad'); }
   }
 
   /* ─────────────────────── photo mode ─────────────────────── */
@@ -1148,7 +1148,7 @@ class Game {
       $('#pSun').value = Math.round(this.sky._elev * 10);
       $('#pAz').value = Math.round(this.sky._azim);
       this.updatePhoto();
-      this.toast('Photo mode. Drag to frame, P to leave.', '');
+      this.toast('사진 모드. 드래그로 구도를 잡고, P로 나갑니다.', '');
     }
   }
   updatePhoto() {
@@ -1187,11 +1187,11 @@ class Game {
       $('#tideNum').textContent = T.roman(t.n);
       $('#tideName').textContent = t.name;
       $('#tidePhase').querySelector('span').textContent =
-        this.phase === 'ebb' ? 'EBB — the water is out' : 'FLOOD — the water is coming';
+        this.phase === 'ebb' ? '썰물 — 물이 빠졌다' : '밀물 — 물이 들어온다';
       const total = this.phase === 'ebb' ? t.build : this.floodLen || t.flood;
       $('#clockFill').style.width = (T.clamp(this.phaseT / total, 0, 1) * 100) + '%';
       $('#clockText').textContent = T.fmtTime(this.phaseT);
-      $('#clockHint').innerHTML = this.phase === 'ebb' ? '<kbd>R</kbd> call it early' : '';
+      $('#clockHint').innerHTML = this.phase === 'ebb' ? '<kbd>R</kbd> 앞당기기' : '';
     }
 
     /* the score counts up rather than snapping — it reads as a tally */
@@ -1208,7 +1208,7 @@ class Game {
     const pw = Math.round(this.pailWet * 100);
     const cls = this.pailWet > 0.88 ? 'soak' : (this.pailWet > 0.5 ? 'damp' : 'dry');
     $('#pailText').innerHTML = (endless ? '∞' : pv.toFixed(2) + ' m³') +
-      '<i class="' + cls + '">' + pw + '% wet</i>';
+      '<i class="' + cls + '">' + pw + '% 젖음</i>';
 
     this.updateHint();
 
@@ -1234,16 +1234,15 @@ class Game {
       const soaked = M.wet > 0.93, tooDry = M.wet < def.wet - 0.14;
       box.className = 'mould-bar' + (M.fill >= 1 ? ' full' : '') +
         (M.fill > 0.02 ? (tooDry ? ' dry' : (soaked ? '' : ' wet')) : '');
-      lbl.textContent = M.fill >= 1 ? 'FULL · ' + Math.round(M.wet * 100) + '% wet'
-        : M.fill > 0.02 ? Math.round(M.fill * 100) + '%' : 'empty';
+      lbl.textContent = M.fill >= 1 ? '가득 · ' + Math.round(M.wet * 100) + '% 젖음'
+        : M.fill > 0.02 ? Math.round(M.fill * 100) + '%' : '비어 있음';
       if (M.fill >= 1) {
-        hint.textContent = tooDry ? 'too dry — it will slump when it comes out'
-          : soaked ? 'soaked — it will run' : 'click where you want it · , . to turn';
+        hint.textContent = tooDry ? '너무 마름 — 찍어내면 무너진다'
+          : soaked ? '질척함 — 흘러내린다' : '원하는 곳을 클릭 · , . 로 회전';
         hint.className = 'mould-hint ' + (tooDry || soaked ? 'bad' : 'go');
       } else {
-        hint.textContent = (this.mode === 'creative' ? 'hold anywhere to fill the '
-                                                     : 'hold on damp sand to fill the ')
-                         + def.name.toLowerCase();
+        hint.textContent = def.name + (this.mode === 'creative' ? ' - 아무 데서나 눌러 채우기'
+                                                     : ' - 촉촉한 모래 위에서 눌러 채우기');
         hint.className = 'mould-hint';
       }
     }
@@ -1296,11 +1295,11 @@ class Game {
 
     const v = $('#pcVerdict');
     let txt, cls;
-    if (d < 0.04) { txt = 'hardpack — nothing left to dig'; cls = 'none'; }
-    else if (m > 0.90) { txt = 'soaked — it will run'; cls = 'bad'; }
-    else if (m > 0.55) { txt = c > 0.45 ? 'damp and packed — strong' : 'damp — good, now pat it'; cls = ''; }
-    else if (m > 0.30) { txt = 'drying — wet it again'; cls = 'dry'; }
-    else { txt = 'dry — will not stand'; cls = 'dry'; }
+    if (d < 0.04) { txt = '단단한 바닥 — 더 팔 것이 없다'; cls = 'none'; }
+    else if (m > 0.90) { txt = '질척함 — 흘러내린다'; cls = 'bad'; }
+    else if (m > 0.55) { txt = c > 0.45 ? '촉촉하고 다져짐 — 튼튼함' : '촉촉함 — 좋음, 이제 다지자'; cls = ''; }
+    else if (m > 0.30) { txt = '마르는 중 — 다시 적시자'; cls = 'dry'; }
+    else { txt = '마름 — 서지 못한다'; cls = 'dry'; }
     v.textContent = txt;
     v.className = 'pc-verdict ' + cls;
   }
@@ -1313,26 +1312,26 @@ class Game {
     if (t.mode === 10) {
       const M = this.mould, def = this.mouldDef();
       if (M.fill < 1) {
-        s = M.fill > 0.02 ? 'keep holding — ' + Math.round(M.fill * 100) + '% full'
-          : (this.mode === 'creative' ? 'hold anywhere to fill the '
-                                      : 'hold on damp sand to fill the ') + def.name.toLowerCase();
-      } else if (M.wet < def.wet - 0.14) { s = 'the sand you scooped was too dry — it will slump'; cls = 'bad'; }
-      else { s = 'aim and click to turn it out · , . to turn it'; cls = 'go'; }
+        s = M.fill > 0.02 ? '계속 누르기 — ' + Math.round(M.fill * 100) + '% 참'
+          : def.name + (this.mode === 'creative' ? ' - 아무 데서나 눌러 채우기'
+                                      : ' - 촉촉한 모래 위에서 눌러 채우기');
+      } else if (M.wet < def.wet - 0.14) { s = '퍼 담은 모래가 너무 말랐다 — 무너질 것이다'; cls = 'bad'; }
+      else { s = '조준하고 클릭해서 찍어내기 · , . 로 회전'; cls = 'go'; }
     } else if (t.mode === 0) {
-      s = 'click to set down a ' + T.ADORN[this.adornIdx].name.toLowerCase();
+      s = T.ADORN[this.adornIdx].name + ' 놓기 - 클릭';
     } else if ((t.moves > 0) && this.pailShown() <= 0.02) {
-      s = 'your pail is empty — dig somewhere you want a hole'; cls = 'bad';
+      s = '양동이가 비었다 — 구덩이가 필요한 곳을 파자'; cls = 'bad';
     } else if (t.mode === 4 && h.valid && h.m > 0.9) {
-      s = 'that is already soaked — any more and it runs'; cls = 'bad';
+      s = '이미 질척하다 — 더 적시면 흘러내린다'; cls = 'bad';
     } else if (t.mode === 1 && h.valid && h.depth < 0.05) {
-      s = 'hardpack — dig somewhere with sand left'; cls = 'bad';
+      s = '단단한 바닥 — 모래가 남은 곳을 파자'; cls = 'bad';
     } else if (t.mode === 3 && h.valid && h.m < 0.3) {
-      s = 'patting dry sand does very little — wet it first';
+      s = '마른 모래는 다져도 별 효과가 없다 — 먼저 적시자';
     } else if (t.mode === 5) {
-      s = this.toolDown ? 'cutting down to where you pressed'
-                        : 'press on the level you want, then drag through the wall';
+      s = this.toolDown ? '누른 높이까지 깎는 중'
+                        : '원하는 높이를 누른 뒤 벽을 가로질러 드래그';
     } else if (t.mode === 6 || t.mode === 8) {
-      s = 'press first where you want the height, then drag';
+      s = '높이를 정할 곳을 먼저 누른 뒤 드래그';
     }
     el.textContent = s;
     el.className = cls;
@@ -1467,7 +1466,7 @@ class Game {
       this.pail = Math.max(0, PAIL_START + (this.sim.baseTotal - this.sim.metrics.total));
       if (prevPail > 0.02 && this.pailShown() <= 0.02) {
         this.flags.pailEmpty = true;
-        this.toast('Pail empty. Dig somewhere you want a hole.', 'bad');
+        this.toast('양동이가 비었다. 구덩이가 필요한 곳을 파자.', 'bad');
       }
       const wp = this.sim.metrics.worth;
       if (this.worthPeak - wp > 0.9 && this.phase === 'flood') {
@@ -1643,8 +1642,8 @@ class Game {
         a.download = 'tidewright-' + Date.now() + '.png';
         a.href = this.canvas.toDataURL('image/png');
         a.click();
-        this.toast('Captured.', 'good');
-      } catch (err) { this.toast('Capture failed.', 'bad'); }
+        this.toast('촬영했습니다.', 'good');
+      } catch (err) { this.toast('촬영에 실패했습니다.', 'bad'); }
     }
   }
 

@@ -518,3 +518,8 @@ body.orbiting canvas#gl{cursor:grabbing}
   .tool{width:44px;height:44px}
   .codex-body{grid-template-columns:1fr}
 }
+
+/* 한글판: 한글 웹폰트와 자간 보정 */
+:root{--f-disp:"Noto Serif KR","Iowan Old Style",Georgia,serif;--f-ui:"Noto Sans KR",ui-sans-serif,-apple-system,"Segoe UI",sans-serif}
+*{letter-spacing:.02em !important;text-transform:none !important;word-break:keep-all}
+.load-title,.menu-head .title{letter-spacing:.12em !important}

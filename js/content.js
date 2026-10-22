@@ -50,236 +50,236 @@ T.ICONS = I;
    changes what the sand is *like*. Shown in the interface, because the
    difference between Water and Drip is exactly this and nothing else. */
 T.TOOLS = [
-  { id:'shovel', key:'1', name:'Shovel',   icon:I.shovel, mode:1, unlock:1, moves:-1,
-    rad:1.5, str:0.62, short:'Digs a hole. Fills your pail.',
-    desc:'Lifts sand out of the world and into your pail — wetness and all. Dig damp sand and the pail stays damp. Digging is how you get material, and how you get a moat.' },
-  { id:'pail',   key:'2', name:'Pail',     icon:I.pail,   mode:2, unlock:1, moves:1,
-    rad:1.3, str:0.55, short:'Pours a heap from your pail.',
-    desc:'Throws real sand, which falls and piles where it lands. It arrives as wet as the pail says it is — check the reading before you build with it.' },
-  { id:'pat',    key:'3', name:'Pat',      icon:I.pat,    mode:3, unlock:1, moves:0,
-    rad:1.1, str:0.55, short:'Packs it down. No sand added.',
-    desc:'Compaction. Packed sand holds a far steeper face and resists the sea. The most under-used tool on any beach.' },
-  { id:'water',  key:'4', name:'Water',    icon:I.water,  mode:4, unlock:1, moves:0,
-    rad:1.6, str:0.60, short:'Wets sand that is already there. Adds none.',
-    desc:'Raises the moisture of the sand under the brush so the grains bridge and it can stand steeper. It does not build anything — for that, use the Pail or Drip.' },
-  { id:'bucket', key:'5', name:'Mould',    icon:I.bucket, mode:10, unlock:1, moves:1,
-    rad:1.0, str:1.0, short:'Hold to fill. Click to turn out.',
-    desc:'Hold on damp sand to scoop the mould full, then aim and click to turn it out. What comes out is exactly as wet as what went in.' },
-  { id:'wall',   key:'6', name:'Rampart',  icon:I.wall,   mode:6, unlock:2, moves:1,
-    rad:0.9, str:0.9, short:'Drag to raise a wall.',
-    desc:'Raises a wall to the height you started at. A long packed berm on the seaward side is a seawall.' },
-  { id:'carve',  key:'7', name:'Carve',    icon:I.carve,  mode:5, unlock:3, moves:-1,
-    rad:0.55, str:0.62, short:'Cuts down to where you first pressed.',
-    desc:'A blade, not a scoop. Press on the level you want and drag: everything you cross comes down to that height, and the cut edge is packed hard so it stands instead of slumping back. Press on the sand beside a wall and drag through it for a gateway. Damp sand takes a crisp edge; dry sand crumbles to a slope.' },
-  { id:'level',  key:'8', name:'Level',    icon:I.level,  mode:8, unlock:3, moves:0,
-    rad:1.8, str:0.6, short:'Flattens to where you first pressed.',
-    desc:'Drives the ground toward the height under your first click. Courtyards, terraces, a flat footing for a tower.' },
-  { id:'drip',   key:'9', name:'Drip',     icon:I.drip,   mode:7, unlock:4, moves:1,
-    rad:0.34, str:0.75, short:'Dribbles very wet sand into spires.',
-    desc:'Takes sand from your pail, adds a splash on the way out, and lets it fall a blob at a time. Grows the knobbled gothic spires only a beach can make. A dry pail makes a poor spire. Unlike Water, this one builds.' },
-  { id:'adorn',  key:'0', name:'Adorn',    icon:I.adorn,  mode:0, unlock:5, moves:0,
-    rad:0.5, str:1, short:'Sets a toy down.',
-    desc:'Adornments lean as the sand moves under them, and go over when the water reaches them.' }
+  { id:'shovel', key:'1', name:'삽',   icon:I.shovel, mode:1, unlock:1, moves:-1,
+    rad:1.5, str:0.62, short:'모래를 퍼내 양동이를 채운다.',
+    desc:'모래를 세상에서 퍼내 양동이에 담는다. 수분도 그대로다. 촉촉한 모래를 파면 양동이도 촉촉하다. 재료를 얻는 방법이자 해자를 만드는 방법이다.' },
+  { id:'pail',   key:'2', name:'양동이',     icon:I.pail,   mode:2, unlock:1, moves:1,
+    rad:1.3, str:0.55, short:'양동이의 모래를 쏟아 쌓는다.',
+    desc:'진짜 모래를 던져 떨어진 곳에 쌓는다. 양동이의 수분 상태 그대로 쏟아지니, 쓰기 전에 수치를 확인하자.' },
+  { id:'pat',    key:'3', name:'다지기',      icon:I.pat,    mode:3, unlock:1, moves:0,
+    rad:1.1, str:0.55, short:'꾹 눌러 다진다. 모래는 늘지 않는다.',
+    desc:'압축한다. 다진 모래는 훨씬 가파른 면을 유지하고 바다에도 잘 버틴다. 어느 해변에서든 가장 덜 쓰이는 도구다.' },
+  { id:'water',  key:'4', name:'물',    icon:I.water,  mode:4, unlock:1, moves:0,
+    rad:1.6, str:0.60, short:'이미 있는 모래를 적신다. 모래는 더하지 않는다.',
+    desc:'브러시 아래 모래의 수분을 올려 알갱이들이 서로 이어지고 더 가파르게 설 수 있게 한다. 무언가를 쌓지는 않는다. 쌓으려면 양동이나 물방울 도구를 쓰자.' },
+  { id:'bucket', key:'5', name:'틀',    icon:I.bucket, mode:10, unlock:1, moves:1,
+    rad:1.0, str:1.0, short:'누르고 있으면 채워지고, 클릭하면 찍어낸다.',
+    desc:'촉촉한 모래 위에서 누르고 있으면 틀이 가득 찬다. 그다음 조준하고 클릭해서 찍어낸다. 나오는 모래는 들어간 모래와 똑같이 젖어 있다.' },
+  { id:'wall',   key:'6', name:'성벽',  icon:I.wall,   mode:6, unlock:2, moves:1,
+    rad:0.9, str:0.9, short:'드래그해서 벽을 쌓는다.',
+    desc:'처음 누른 높이까지 벽을 올린다. 바다 쪽에 길고 다져 쌓은 둑은 방파제가 된다.' },
+  { id:'carve',  key:'7', name:'깎기',    icon:I.carve,  mode:5, unlock:3, moves:-1,
+    rad:0.55, str:0.62, short:'처음 누른 높이까지 깎아 내린다.',
+    desc:'삽이 아니라 칼날이다. 원하는 높이를 누르고 드래그하면 지나간 곳이 모두 그 높이까지 내려가고, 깎인 가장자리는 단단히 다져져 무너지지 않는다. 벽 옆의 모래를 누르고 벽을 가로질러 드래그하면 출입구가 생긴다. 촉촉한 모래는 선명한 가장자리를 남기고, 마른 모래는 부서져 비탈이 된다.' },
+  { id:'level',  key:'8', name:'평탄화',    icon:I.level,  mode:8, unlock:3, moves:0,
+    rad:1.8, str:0.6, short:'처음 누른 높이로 평평하게 만든다.',
+    desc:'처음 클릭한 곳의 높이로 땅을 맞춘다. 안뜰, 단상, 탑의 평평한 기초에 좋다.' },
+  { id:'drip',   key:'9', name:'물방울 쌓기',     icon:I.drip,   mode:7, unlock:4, moves:1,
+    rad:0.34, str:0.75, short:'아주 질척한 모래로 첨탑을 쌓는다.',
+    desc:'양동이의 모래를 꺼내 나올 때 물을 조금 섞고 한 덩이씩 떨어뜨린다. 해변에서만 만들 수 있는 울퉁불퉁한 고딕 첨탑이 자란다. 양동이가 비면 첨탑도 부실하다. 물과 달리 이 도구는 쌓는다.' },
+  { id:'adorn',  key:'0', name:'장식',    icon:I.adorn,  mode:0, unlock:5, moves:0,
+    rad:0.5, str:1, short:'장난감을 놓는다.',
+    desc:'장식물은 아래 모래가 움직이면 기울고, 물이 닿으면 쓰러진다.' }
 ];
 
 T.ADORN = [
-  { id:'flag',     name:'Pennant',   icon:I.flagI,     scale:1.0 },
-  { id:'parasol',  name:'Parasol',   icon:I.parasolI,  scale:1.0 },
-  { id:'pinwheel', name:'Pinwheel',  icon:I.pinwheelI, scale:1.0 },
-  { id:'lantern',  name:'Lantern',   icon:I.lampI,     scale:1.0 },
-  { id:'pail',     name:'Pail & spade', icon:I.pailI,  scale:1.0 },
-  { id:'boat',     name:'Toy boat',  icon:I.boatI,     scale:1.0 },
-  { id:'shell',    name:'Scallop',   icon:I.shellI,    scale:1.0 },
-  { id:'star',     name:'Starfish',  icon:I.starI,     scale:1.0 },
-  { id:'wood',     name:'Driftwood', icon:I.woodI,     scale:1.0 },
-  { id:'kelp',     name:'Kelp',      icon:I.kelpI,     scale:1.0 },
-  { id:'bottle',   name:'Bottle',    icon:I.bottleI,   scale:1.0 },
-  { id:'cairn',    name:'Cairn',     icon:I.cairnI,    scale:1.0 }
+  { id:'flag',     name:'깃발',   icon:I.flagI,     scale:1.0 },
+  { id:'parasol',  name:'파라솔',   icon:I.parasolI,  scale:1.0 },
+  { id:'pinwheel', name:'바람개비',  icon:I.pinwheelI, scale:1.0 },
+  { id:'lantern',  name:'등불',   icon:I.lampI,     scale:1.0 },
+  { id:'pail',     name:'양동이와 삽', icon:I.pailI,  scale:1.0 },
+  { id:'boat',     name:'장난감 배',  icon:I.boatI,     scale:1.0 },
+  { id:'shell',    name:'가리비',   icon:I.shellI,    scale:1.0 },
+  { id:'star',     name:'불가사리',  icon:I.starI,     scale:1.0 },
+  { id:'wood',     name:'유목', icon:I.woodI,     scale:1.0 },
+  { id:'kelp',     name:'켈프',      icon:I.kelpI,     scale:1.0 },
+  { id:'bottle',   name:'병',    icon:I.bottleI,   scale:1.0 },
+  { id:'cairn',    name:'돌탑',     icon:I.cairnI,    scale:1.0 }
 ];
 
 /* ─────────────────────────── the moulds ───────────────────────────
    The plastic shapes in the bottom of the beach bag. `id` indexes
    mouldShape() in glsl.js — keep the two in step.                   */
 T.MOULDS = [
-  { id:0, name:'Round turret', icon:I.mTurret,  rad:0.95, h:1.55, detail:9,  wet:0.55 },
-  { id:1, name:'Square keep',  icon:I.mKeep,    rad:1.05, h:1.35, detail:0,  wet:0.55 },
-  { id:2, name:'Gatehouse',    icon:I.mGate,    rad:1.30, h:1.25, detail:0,  wet:0.58 },
-  { id:3, name:'Star fort',    icon:I.mStar,    rad:1.35, h:0.95, detail:0,  wet:0.55 },
-  { id:4, name:'Ziggurat',     icon:I.mZig,     rad:1.25, h:1.25, detail:0,  wet:0.50 },
-  { id:5, name:'Spire',        icon:I.mSpire,   rad:0.70, h:2.10, detail:0,  wet:0.68 },
-  { id:6, name:'Scallop',      icon:I.mScallop, rad:0.95, h:0.50, detail:0,  wet:0.42 },
-  { id:7, name:'Fish',         icon:I.mFish,    rad:1.20, h:0.46, detail:0,  wet:0.42 },
-  { id:8, name:'Crab',         icon:I.mCrab,    rad:1.20, h:0.42, detail:0,  wet:0.45 },
-  { id:9, name:'Starfish',     icon:I.mStarfish,rad:1.20, h:0.34, detail:0,  wet:0.38 }
+  { id:0, name:'원형 탑', icon:I.mTurret,  rad:0.95, h:1.55, detail:9,  wet:0.55 },
+  { id:1, name:'사각 본채',  icon:I.mKeep,    rad:1.05, h:1.35, detail:0,  wet:0.55 },
+  { id:2, name:'성문',    icon:I.mGate,    rad:1.30, h:1.25, detail:0,  wet:0.58 },
+  { id:3, name:'별 요새',    icon:I.mStar,    rad:1.35, h:0.95, detail:0,  wet:0.55 },
+  { id:4, name:'지구라트',     icon:I.mZig,     rad:1.25, h:1.25, detail:0,  wet:0.50 },
+  { id:5, name:'첨탑',        icon:I.mSpire,   rad:0.70, h:2.10, detail:0,  wet:0.68 },
+  { id:6, name:'가리비',      icon:I.mScallop, rad:0.95, h:0.50, detail:0,  wet:0.42 },
+  { id:7, name:'물고기',         icon:I.mFish,    rad:1.20, h:0.46, detail:0,  wet:0.42 },
+  { id:8, name:'게',         icon:I.mCrab,    rad:1.20, h:0.42, detail:0,  wet:0.45 },
+  { id:9, name:'불가사리',     icon:I.mStarfish,rad:1.20, h:0.34, detail:0,  wet:0.38 }
 ];
 
 /* ─────────────────────────── the nine tides ─────────────────────────── */
 function O(text, fn) { return { text, check: fn }; }
 
 T.TIDES = [
-  { n:1, name:'First Salt',
-    verse:'“The first tide only wants to know that you are there. Give it something small and honest. It will take a corner of it anyway; that is how it says hello.”',
+  { n:1, name:'첫 소금',
+    verse:'“첫 번째 밀물은 당신이 거기 있다는 것만 알고 싶어 한다. 작고 정직한 것을 내어 주어라. 그래도 한 모퉁이는 가져갈 것이다. 그것이 바다의 인사법이다.”',
     low:-0.34, high:0.30, build:170, flood:62, amp:0.55, sun:[62,205], cloud:0.55,
     objs:[
-      O('Leave 320 of Remembrance standing', s => s.worth >= 320),
-      O('Keep three quarters of it through the flood', s => s.kept >= 0.75)
+      O('기억 320 남기기', s => s.worth >= 320),
+      O('밀물이 지나가도 4분의 3 지키기', s => s.kept >= 0.75)
     ] },
-  { n:2, name:'The Bucket Turns',
-    verse:'“A mould is a promise between you and the water in the sand. Break the promise — turn out a dry tower — and the sand will show you exactly what it thinks of you.”',
+  { n:2, name:'양동이가 돌다',
+    verse:'“틀은 당신과 모래 속 물 사이의 약속이다. 약속을 깨고 마른 탑을 찍어내면, 모래가 당신을 어떻게 생각하는지 정확히 보여 줄 것이다.”',
     low:-0.32, high:0.44, build:170, flood:66, amp:0.68, sun:[52,176], cloud:0.6,
     objs:[
-      O('Stand something 1.4 m above the high-water line', s => s.peakAbove >= 1.4),
-      O('Leave 520 of Remembrance standing', s => s.worth >= 520),
-      O('Keep seven tenths through the flood', s => s.kept >= 0.70)
+      O('만조선보다 1.4 m 높은 구조물 세우기', s => s.peakAbove >= 1.4),
+      O('기억 520 남기기', s => s.worth >= 520),
+      O('밀물이 지나가도 10분의 7 지키기', s => s.kept >= 0.70)
     ] },
-  { n:3, name:'A Ditch and a Bank',
-    verse:'“Every ditch is also a bank. The spoil has to go somewhere, and where you put it is the whole of the craft. Dig toward the sea; build away from it.”',
+  { n:3, name:'도랑과 둑',
+    verse:'“모든 도랑은 곧 둑이다. 파낸 흙은 어딘가로 가야 하고, 그곳을 정하는 것이 기술의 전부다. 바다 쪽으로 파고, 바다에서 먼 쪽으로 쌓아라.”',
     low:-0.30, high:0.56, build:180, flood:72, amp:0.80, sun:[43,150], cloud:0.7,
     objs:[
-      O('Cut a moat the water actually fills', s => s.moatFilled),
-      O('Leave 760 of Remembrance standing', s => s.worth >= 760),
-      O('Keep seven tenths through the flood', s => s.kept >= 0.70)
+      O('물이 실제로 차오르는 해자를 파기', s => s.moatFilled),
+      O('기억 760 남기기', s => s.worth >= 760),
+      O('밀물이 지나가도 10분의 7 지키기', s => s.kept >= 0.70)
     ] },
-  { n:4, name:'The Packing Tide',
-    verse:'“There is a sound packed sand makes under the flat of your hand — a dull, close sound, like a door shutting in another room. Work until you hear it everywhere.”',
+  { n:4, name:'다지는 밀물',
+    verse:'“다진 모래는 손바닥 아래에서 독특한 소리를 낸다. 다른 방에서 문이 닫히는 것 같은 둔하고 가까운 소리다. 어디서나 그 소리가 들릴 때까지 다져라.”',
     low:-0.28, high:0.66, build:180, flood:78, amp:0.94, sun:[33,127], cloud:0.75,
     objs:[
-      O('Have 45 m³ of properly packed sand', s => s.packed >= 45),
-      O('Leave 1000 of Remembrance standing', s => s.worth >= 1000),
-      O('Keep two thirds through the flood', s => s.kept >= 0.66)
+      O('제대로 다진 모래 45 m³ 확보', s => s.packed >= 45),
+      O('기억 1000 남기기', s => s.worth >= 1000),
+      O('밀물이 지나가도 3분의 2 지키기', s => s.kept >= 0.66)
     ] },
-  { n:5, name:'Gold Water',
-    verse:'“At the fifth tide the sun comes down onto the water and the whole shore turns the colour of a struck coin. Do not stop to look. The sixth tide is already coming.”',
+  { n:5, name:'황금빛 물',
+    verse:'“다섯 번째 밀물에는 해가 물 위로 내려앉아 해안 전체가 갓 찍은 동전 빛이 된다. 멈춰서 바라보지 마라. 여섯 번째 밀물이 벌써 오고 있다.”',
     low:-0.26, high:0.76, build:185, flood:84, amp:1.08, sun:[23,108], cloud:0.85,
     objs:[
-      O('Stand something 1.9 m above the high-water line', s => s.peakAbove >= 1.9),
-      O('Leave 1350 of Remembrance standing', s => s.worth >= 1350),
-      O('Keep two thirds through the flood', s => s.kept >= 0.66)
+      O('만조선보다 1.9 m 높은 구조물 세우기', s => s.peakAbove >= 1.9),
+      O('기억 1350 남기기', s => s.worth >= 1350),
+      O('밀물이 지나가도 3분의 2 지키기', s => s.kept >= 0.66)
     ] },
-  { n:6, name:'The Lanterns',
-    verse:'“Vellamar lit lamps along its sea wall every evening for four hundred years. On the last evening they lit them too. That is the part the sea cannot take back.”',
+  { n:6, name:'등불들',
+    verse:'“벨라마르는 사백 년 동안 매일 저녁 방파제를 따라 등불을 밝혔다. 마지막 저녁에도 밝혔다. 바다가 되돌릴 수 없는 것은 바로 그 부분이다.”',
     low:-0.24, high:0.86, build:190, flood:90, amp:1.22, sun:[13,94], cloud:0.8,
     objs:[
-      O('Set six adornments and keep four upright', s => s.propsAlive >= 4),
-      O('Leave 1700 of Remembrance standing', s => s.worth >= 1700),
-      O('Keep three fifths through the flood', s => s.kept >= 0.60)
+      O('장식 여섯 개를 놓고 네 개는 세워 두기', s => s.propsAlive >= 4),
+      O('기억 1700 남기기', s => s.worth >= 1700),
+      O('밀물이 지나가도 5분의 3 지키기', s => s.kept >= 0.60)
     ] },
-  { n:7, name:'Swell from the West',
-    verse:'“Weather now. The sets come in threes and the third one is a liar. Build for the third one.”',
+  { n:7, name:'서쪽에서 온 너울',
+    verse:'“이제는 날씨다. 파도는 세 개씩 밀려오고, 세 번째는 거짓말쟁이다. 세 번째를 대비해 지어라.”',
     low:-0.22, high:0.95, build:195, flood:96, amp:1.48, sun:[5,84], cloud:1.0,
     objs:[
-      O('Leave 1900 of Remembrance standing', s => s.worth >= 1900),
-      O('Have 85 m³ of packed sand', s => s.packed >= 85),
-      O('Keep three fifths through the flood', s => s.kept >= 0.60)
+      O('기억 1900 남기기', s => s.worth >= 1900),
+      O('다진 모래 85 m³ 확보', s => s.packed >= 85),
+      O('밀물이 지나가도 5분의 3 지키기', s => s.kept >= 0.60)
     ] },
-  { n:8, name:'Dusk Water',
-    verse:'“You will notice, around the eighth tide, that you have stopped thinking of it as sand. Good. It stopped thinking of you as a stranger some time ago.”',
+  { n:8, name:'황혼의 물',
+    verse:'“여덟 번째 밀물 즈음이면 이것을 더는 모래로 생각하지 않게 된다. 좋다. 모래도 한참 전부터 당신을 낯선 사람으로 여기지 않았다.”',
     low:-0.20, high:1.04, build:200, flood:104, amp:1.66, sun:[-4,76], cloud:0.9,
     objs:[
-      O('Leave 2300 of Remembrance standing', s => s.worth >= 2300),
-      O('Stand something 2.4 m above the high-water line', s => s.peakAbove >= 2.4),
-      O('Keep over half through the flood', s => s.kept >= 0.55)
+      O('기억 2300 남기기', s => s.worth >= 2300),
+      O('만조선보다 2.4 m 높은 구조물 세우기', s => s.peakAbove >= 2.4),
+      O('밀물이 지나가도 절반 넘게 지키기', s => s.kept >= 0.55)
     ] },
-  { n:9, name:'The Ninth Tide',
-    verse:'“Nine is the tide that comes in the dark, and it comes all the way. Whatever is left standing when the water turns is not yours any more and never was. It belongs to the shape. Hold the shape.”',
+  { n:9, name:'아홉 번째 밀물',
+    verse:'“아홉 번째는 어둠 속에서 오는 밀물이고, 끝까지 들어온다. 물이 돌아설 때 서 있는 것은 더 이상 당신의 것이 아니며 애초에 그랬던 적도 없다. 그것은 형태의 것이다. 형태를 지켜라.”',
     low:-0.18, high:1.14, build:215, flood:120, amp:1.85, sun:[-13,68], cloud:0.7,
     objs:[
-      O('Leave 2700 of Remembrance standing', s => s.worth >= 2700),
-      O('Keep half of it through the dark water', s => s.kept >= 0.50),
-      O('Still have a lantern upright at the end', s => s.lanternAlive)
+      O('기억 2700 남기기', s => s.worth >= 2700),
+      O('어두운 물이 지나가도 절반 지키기', s => s.kept >= 0.50),
+      O('끝까지 등불 하나를 세워 두기', s => s.lanternAlive)
     ] }
 ];
 
 /* ─────────────────────────── codex ─────────────────────────── */
 T.CODEX = [
-  { id:'c1', tide:1, title:'On the country that was here',
-    src:'The Tidewright’s Primer, opening',
+  { id:'c1', tide:1, title:'이곳에 있던 나라에 대하여',
+    src:'타이드라이트 입문서, 서문',
     body:[
-      'Vellamar was a low country and it knew it. Its cities were built on banks the rivers had made, and every spring the banks were mended by hand, and every autumn the sea took a little back, and this arrangement held for something like nine hundred years.',
-      'It did not end in a storm. The chronicles are clear about that, and stubborn about it, and there is no reason to disbelieve them. It ended on a still night with a flat sea. The banks were sound. The lamps were lit. And in the morning there was water where there had been a country, and none of the words for it worked any more.',
-      'What is left is this beach, which is made of Vellamar, ground fine.'
+      '벨라마르는 낮은 땅의 나라였고, 스스로도 그것을 알았다. 도시들은 강이 만든 둑 위에 세워졌고, 봄마다 둑을 손으로 고쳤으며, 가을마다 바다가 조금씩 되가져갔다. 이 균형은 구백 년쯤 이어졌다.',
+      '폭풍으로 끝난 것이 아니다. 연대기들은 그 점을 분명히, 고집스럽게 적고 있고 의심할 이유도 없다. 바다가 잔잔한 고요한 밤에 끝났다. 둑은 멀쩡했고 등불은 켜져 있었다. 아침이 되자 나라가 있던 자리에 물이 있었고, 그것을 가리킬 말은 어느 것도 더는 통하지 않았다.',
+      '남은 것은 이 해변이다. 곱게 갈린 벨라마르로 이루어진.'
     ] },
-  { id:'c2', tide:2, title:'Why the mould must be wet',
-    src:'The Tidewright’s Primer, second lesson',
+  { id:'c2', tide:2, title:'틀은 왜 젖어 있어야 하는가',
+    src:'타이드라이트 입문서, 두 번째 가르침',
     body:[
-      'Take dry sand between finger and thumb and it will not hold. Add a little water and it becomes, briefly, a solid — not because the water glues it, but because each drop pulls at the grains around it and every grain is being squeezed toward its neighbours by a thousand tiny meniscuses.',
-      'Add more water and the drops touch each other and stop pulling. The squeeze goes. The sand runs.',
-      'So: damp, not soaked. There is no way to learn where that line is except by crossing it, which you will, repeatedly, and then one day not.'
+      '마른 모래를 엄지와 검지로 쥐면 뭉쳐지지 않는다. 물을 조금 더하면 잠깐 고체가 된다. 물이 풀처럼 붙여서가 아니라, 물방울 하나하나가 주변 알갱이를 당기고 수천 개의 작은 메니스커스가 알갱이들을 서로 맞대어 누르기 때문이다.',
+      '물을 더하면 물방울들이 서로 닿아 더는 당기지 않는다. 누르는 힘이 사라지고 모래는 흘러내린다.',
+      '그러니 젖은 것이 아니라 촉촉하게. 그 경계가 어디인지는 넘어 보는 수밖에 없다. 여러 번 넘게 될 것이고, 그러다 어느 날부터는 넘지 않게 된다.'
     ] },
-  { id:'c3', tide:3, title:'The purpose of a moat',
-    src:'Field notes, ninth novena',
+  { id:'c3', tide:3, title:'해자의 목적',
+    src:'현장 노트, 아홉 번째 노베나',
     body:[
-      'A moat does not stop water. Nothing stops water. A moat spends it.',
-      'A wave arriving at a wall gives that wall all its energy at once. A wave arriving at a ditch first has to fill the ditch, and filling a ditch is work, and the work comes out of the wave. What reaches your wall afterward is slower, thinner and much stupider.',
-      'The corollary that catches everyone: a moat that drains inland is a delivery service. Cut your outlets seaward.'
+      '해자는 물을 막지 않는다. 물을 막는 것은 없다. 해자는 물을 소모시킨다.',
+      '벽에 닿는 파도는 에너지를 한꺼번에 벽에 쏟는다. 도랑에 닿는 파도는 먼저 도랑을 채워야 하고, 도랑을 채우는 일은 일이며, 그 일의 값은 파도가 치른다. 그 뒤에 벽에 닿는 것은 더 느리고, 더 얇고, 훨씬 멍청하다.',
+      '누구나 걸려드는 결과가 있다. 내륙으로 물이 빠지는 해자는 배달 서비스다. 배수구는 바다 쪽으로 내라.'
     ] },
-  { id:'c4', tide:4, title:'On the angle of repose',
-    src:'The Tidewright’s Primer, third lesson',
+  { id:'c4', tide:4, title:'안식각에 대하여',
+    src:'타이드라이트 입문서, 세 번째 가르침',
     body:[
-      'Pour dry sand onto a table. It makes a cone. Pour more and it makes a bigger cone with exactly the same sides. You cannot make it steeper. That angle — about thirty-three degrees in this sand — is not a suggestion. It is the sand telling you the only shape it can be.',
-      'Everything you build here is an argument with that angle. Water is one argument. The flat of your hand is another. The sea is the rebuttal.'
+      '마른 모래를 탁자에 부으면 원뿔이 생긴다. 더 부으면 옆면이 똑같은 더 큰 원뿔이 된다. 더 가파르게 만들 수는 없다. 이 모래에서는 약 33도인 그 각도는 제안이 아니다. 모래가 자신이 될 수 있는 유일한 모양을 알려 주는 것이다.',
+      '여기서 짓는 모든 것은 그 각도와의 논쟁이다. 물이 하나의 논거이고, 손바닥이 또 하나의 논거이며, 바다는 그에 대한 반박이다.'
     ] },
-  { id:'c5', tide:5, title:'The colour of the fifth evening',
-    src:'Marginalia, unsigned',
+  { id:'c5', tide:5, title:'다섯 번째 저녁의 빛깔',
+    src:'여백의 메모, 서명 없음',
     body:[
-      'They say that on the fifth tide of a novena the light comes in flat off the water and for about eleven minutes every wet surface on the beach behaves like a mirror, and for those eleven minutes you can see the drowned streets reflected in the sand — not the sand, the reflection, which is a distinction the writers of these things enjoy far too much.',
-      'I have watched for it nine times. I have never seen streets. I have seen a great deal of extremely good light, which is, I have come to think, the same claim made honestly.'
+      '노베나의 다섯 번째 밀물에는 빛이 수면을 따라 납작하게 들어와, 약 십일 분 동안 해변의 젖은 면이 모두 거울처럼 된다고 한다. 그 십일 분 동안은 가라앉은 거리가 모래에 비쳐 보인다. 모래가 아니라 비친 모습이라는 구분을 이런 글을 쓰는 이들은 지나치게 즐긴다.',
+      '나는 아홉 번 지켜보았다. 거리는 한 번도 보지 못했다. 대신 아주 훌륭한 빛을 아주 많이 보았다. 이제는 그것이 같은 주장을 정직하게 한 것이라고 생각한다.'
     ] },
-  { id:'c6', tide:6, title:'The lamplighters',
-    src:'Vellamar, civic record (fragment)',
+  { id:'c6', tide:6, title:'등불지기들',
+    src:'벨라마르 시 기록 (단편)',
     body:[
-      'Item: to the lamplighters of the sea wall, for oil, for the quarter — paid.',
-      'Item: for the replacement of eleven lamps lost to weather — paid.',
-      'Item: for the same, on the night of the flood — the entry is finished, in a different hand, with the word *paid*.',
-      'It is the only kindness in the whole ledger and someone went back for it.'
+      '항목: 방파제 등불지기에게, 이번 분기 기름값 - 지급 완료.',
+      '항목: 날씨로 잃은 등불 열한 개의 교체 - 지급 완료.',
+      '항목: 홍수가 난 밤의 같은 항목 - 기재가 다른 필체로 끝맺어졌고, *지급 완료*라는 말이 적혀 있다.',
+      '장부 전체에서 유일한 친절이며, 누군가 되돌아와 그것을 적었다.'
     ] },
-  { id:'c7', tide:7, title:'Reading a set',
-    src:'Field notes, ninth novena',
+  { id:'c7', tide:7, title:'파도 묶음 읽기',
+    src:'현장 노트, 아홉 번째 노베나',
     body:[
-      'Waves do not arrive evenly. They arrive in sets, and within a set they grow, and the last one of a set is the one that finds the base of your wall.',
-      'You can hear it coming about four seconds before it arrives, because the water in front of it goes quiet — it is being pulled backward into the face of the thing. If the shore hisses and then stops hissing, stop patting and start watching.'
+      '파도는 고르게 오지 않는다. 묶음으로 오고, 묶음 안에서 점점 커지며, 한 묶음의 마지막 파도가 벽의 밑동을 찾아낸다.',
+      '도착하기 약 사 초 전에 그것이 오는 소리가 들린다. 앞쪽의 물이 조용해지기 때문이다. 물이 그 파도의 면 속으로 뒤로 끌려가고 있는 것이다. 해안이 쉬익 하다가 멈추면, 다지기를 멈추고 지켜보라.'
     ] },
-  { id:'c8', tide:8, title:'Undermining',
-    src:'The Tidewright’s Primer, last lesson',
+  { id:'c8', tide:8, title:'밑동 파기',
+    src:'타이드라이트 입문서, 마지막 가르침',
     body:[
-      'Nothing here is knocked down. Everything here falls down.',
-      'The sea does not hit your tower; it takes away a handful at the bottom of your tower, and then the tower is standing on a slope steeper than sand can be, and then it is not standing.',
-      'Which is to say: defend the feet. The top of a sandcastle has never once been the problem.'
+      '여기서는 무엇도 쓰러뜨려지지 않는다. 모든 것이 스스로 무너진다.',
+      '바다는 탑을 때리지 않는다. 탑 밑동에서 한 줌을 가져갈 뿐이고, 그러면 탑은 모래가 버틸 수 있는 것보다 더 가파른 비탈 위에 서 있게 되고, 그다음에는 서 있지 못한다.',
+      '다시 말해 발을 지켜라. 모래성의 꼭대기가 문제였던 적은 한 번도 없다.'
     ] },
-  { id:'c9', tide:9, title:'What the ninth tide is for',
-    src:'The Tidewright’s Primer, closing',
+  { id:'c9', tide:9, title:'아홉 번째 밀물은 무엇을 위한 것인가',
+    src:'타이드라이트 입문서, 맺음말',
     body:[
-      'You will be told that a tidewright works to preserve something. That is a misunderstanding, and a comfortable one.',
-      'Nothing you make here survives. Nine tides is not a long time and the ninth is not the last one; there is a tenth, and it is tomorrow, and no one is watching that one.',
-      'What a tidewright preserves is the *shape* — the fact that this arrangement of grains was possible, was chosen, was made by somebody on purpose on an ordinary afternoon. The sea can have the sand. It has never once managed to take the fact.',
-      'Hold the shape. Then let go of it. Then do it again.'
+      '타이드라이트는 무언가를 보존하기 위해 일한다고들 말한다. 그것은 편안하지만 잘못된 이해다.',
+      '여기서 만든 것은 아무것도 살아남지 않는다. 아홉 번의 밀물은 긴 시간이 아니고, 아홉 번째가 마지막도 아니다. 열 번째가 있고, 그것은 내일이며, 그것을 지켜보는 사람은 없다.',
+      '타이드라이트가 보존하는 것은 *형태*다. 이 알갱이들의 배열이 가능했고, 선택되었고, 평범한 오후에 누군가가 일부러 만들었다는 사실이다. 바다는 모래를 가져갈 수 있다. 그 사실을 가져간 적은 한 번도 없다.',
+      '형태를 지켜라. 그다음엔 놓아 주어라. 그리고 다시 하라.'
     ] },
-  { id:'cx1', tide:0, hidden:true, title:'On spires',
-    src:'Unlocked: you built a drip spire above two metres',
+  { id:'cx1', tide:0, hidden:true, title:'첨탑에 대하여',
+    src:'해금: 2미터가 넘는 물방울 첨탑을 쌓았다',
     body:[
-      'The dripped spire is the only part of this craft that is not architecture. You cannot plan one. You hold very wet sand above a point and you let go of it a little at a time and what accumulates is a tower designed entirely by surface tension and gravity, with you as a delivery mechanism.',
-      'It is also, structurally, absurd — a stack of blobs held together by water that is actively leaving. Which is why the good ones are always finished in a hurry and always slightly wrong, and why nobody has ever built the same one twice.'
+      '물방울 첨탑은 이 기술에서 건축이 아닌 유일한 부분이다. 계획할 수 없다. 아주 젖은 모래를 한 점 위에 들고 조금씩 놓아 주면, 쌓이는 것은 표면장력과 중력이 완전히 설계한 탑이고 당신은 그 전달 수단일 뿐이다.',
+      '구조적으로도 터무니없다. 물이 빠져나가는 중인 물로 이어 붙인 덩어리들의 더미다. 그래서 잘 된 것들은 항상 서둘러 끝나고 항상 약간 틀리며, 같은 것을 두 번 만든 사람이 없다.'
     ] },
-  { id:'cx2', tide:0, hidden:true, title:'On the pail',
-    src:'Unlocked: you emptied your pail',
+  { id:'cx2', tide:0, hidden:true, title:'양동이에 대하여',
+    src:'해금: 양동이를 비웠다',
     body:[
-      'There is no sand in this bay that you did not take from somewhere else in this bay.',
-      'Beginners dig a borrow pit behind the castle, where it is convenient, and are then surprised when the sea comes up the pit like a stair and takes the castle from behind.',
-      'Dig where you want a hole. There is always somewhere you want a hole.'
+      '이 만에 있는 모래 중 이 만의 다른 곳에서 가져오지 않은 모래는 없다.',
+      '초보자들은 편하다는 이유로 성 뒤에 구덩이를 판다. 그러다 바다가 그 구덩이를 계단처럼 타고 올라와 성을 뒤에서 가져가면 놀란다.',
+      '구덩이가 필요한 곳에 파라. 구덩이가 필요한 곳은 언제나 있다.'
     ] }
 ];
 
 /* ─────────────────────────── the looks ─────────────────────────── */
 T.LOOKS = [
-  { id:0, name:'Salt & Light',  note:'the shore as it is' },
-  { id:1, name:'Bucket & Spade',note:'painted, inked, cosy' },
-  { id:2, name:'Marram',        note:'screen-printed poster' },
-  { id:3, name:'Ordnance',      note:'a survey chart of the sand' },
-  { id:4, name:'Felt & Flannel',note:'a craft-fair diorama' },
-  { id:5, name:'Rockpool',      note:'a foot under clear water' },
-  { id:6, name:'Tin Toy',       note:'enamel on pressed tin' },
-  { id:7, name:'Sōsaku Hanga',  note:'woodblock, ragged key' },
-  { id:8, name:'Midwinter',     note:'the beach out of season' }
+  { id:0, name:'소금과 빛', note:'있는 그대로의 해안' },
+  { id:1, name:'양동이와 삽', note:'그림, 잉크, 아늑함' },
+  { id:2, name:'해변 갈대', note:'스크린 인쇄 포스터' },
+  { id:3, name:'측량도', note:'모래의 측량 지도' },
+  { id:4, name:'펠트와 플란넬', note:'공예 장터 디오라마' },
+  { id:5, name:'바위 웅덩이', note:'맑은 물 한 발 아래' },
+  { id:6, name:'양철 장난감', note:'압연 양철 위 에나멜' },
+  { id:7, name:'창작 판화', note:'목판, 거친 윤곽' },
+  { id:8, name:'한겨울', note:'철 지난 해변' }
 ];
 
 /* ─────────────────────────── the day ───────────────────────────
@@ -297,19 +297,19 @@ T.dayClock = function (t) {
 T.dayPhase = function (t) {
   const e = T.sunFromDay(t)[0];
   const rising = t < 0.515;
-  if (e < -8) return 'deep night';
-  if (e < 0)  return rising ? 'first light' : 'dusk';
-  if (e < 8)  return rising ? 'sunrise' : 'sunset';
-  if (e < 20) return rising ? 'early light' : 'gold water';
-  if (e < 42) return rising ? 'morning' : 'afternoon';
-  if (e < 60) return rising ? 'late morning' : 'high afternoon';
-  return 'midday';
+  if (e < -8) return '깊은 밤';
+  if (e < 0)  return rising ? '첫 빛' : '황혼';
+  if (e < 8)  return rising ? '일출' : '일몰';
+  if (e < 20) return rising ? '이른 빛' : '황금빛 물';
+  if (e < 42) return rising ? '아침' : '오후';
+  if (e < 60) return rising ? '늦은 아침' : '한낮의 오후';
+  return '정오';
 };
 T.DAY_SPEEDS = [
-  { name: 'held',  s: 0 },
-  { name: 'slow',  s: 1 / 1500 },
-  { name: 'gentle',s: 1 / 720 },
-  { name: 'brisk', s: 1 / 300 }
+  { name: '정지',  s: 0 },
+  { name: '느림',  s: 1 / 1500 },
+  { name: '보통',s: 1 / 720 },
+  { name: '빠름', s: 1 / 300 }
 ];
 
 /* ─────────────────────────── grading ─────────────────────────── */
@@ -318,12 +318,12 @@ T.grade = function (s) {
   pts += Math.min(s.worth / Math.max(s.target, 1), 1.6) * 55;
   pts += Math.min(s.kept, 1) * 32;
   pts += s.objsDone / Math.max(s.objsTotal, 1) * 13;
-  if (pts >= 96) return { g: 'S', line: 'The shape held. All of it.' };
-  if (pts >= 84) return { g: 'A', line: 'The water went back out and found nothing to say.' };
-  if (pts >= 68) return { g: 'B', line: 'It took a corner. It always takes a corner.' };
-  if (pts >= 50) return { g: 'C', line: 'Standing, mostly. The feet went first.' };
-  if (pts >= 30) return { g: 'D', line: 'The sea has opinions about your foundations.' };
-  return { g: 'E', line: 'It is all still here. It is just flat now.' };
+  if (pts >= 96) return { g: 'S', line: '형태가 버텼다. 전부.' };
+  if (pts >= 84) return { g: 'A', line: '물이 다시 빠져나갔고, 할 말을 찾지 못했다.' };
+  if (pts >= 68) return { g: 'B', line: '한 모퉁이를 가져갔다. 언제나 한 모퉁이는 가져간다.' };
+  if (pts >= 50) return { g: 'C', line: '대체로 서 있다. 발부터 무너졌다.' };
+  if (pts >= 30) return { g: 'D', line: '바다는 당신의 기초에 의견이 있다.' };
+  return { g: 'E', line: '전부 아직 여기 있다. 다만 이제 평평할 뿐이다.' };
 };
 
 })(TW);

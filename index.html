@@ -1,10 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>TIDEWRIGHT — Nine Tides</title>
+<title>TIDEWRIGHT (타이드라이트) — 아홉 번의 밀물</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%230b0d12'/><path d='M4 22h24v6H4z' fill='%23e2b877'/><path d='M10 22V12l6-6 6 6v10z' fill='%23f0d3a3'/><circle cx='16' cy='6' r='2' fill='%23ffd98a'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Noto+Serif+KR:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/ui.css?v=20260805c">
 </head>
 <body>
@@ -25,7 +28,7 @@
     </div>
     <h1 class="load-title">TIDEWRIGHT</h1>
     <div class="load-bar"><i id="loadFill"></i></div>
-    <div class="load-msg" id="loadMsg">waking the shore…</div>
+    <div class="load-msg" id="loadMsg">해변을 깨우는 중…</div>
   </div>
 </div>
 
@@ -34,51 +37,50 @@
   <div class="menu-veil"></div>
   <div class="menu-wrap">
     <header class="menu-head">
-      <div class="eyebrow">a sandcastle simulator</div>
+      <div class="eyebrow">모래성 시뮬레이터</div>
       <h1 class="title">TIDEWRIGHT</h1>
-      <div class="subtitle">Nine Tides over Vellamar</div>
+      <div class="subtitle">벨라마르 위로 아홉 번의 밀물</div>
     </header>
 
     <p class="lore-lede">
-      Long before the maps, this coast was a country. It sank in one night — not from war,
-      but because it forgot its own name. The sea keeps what it takes, yet keeps it badly:
-      every tide it tries to hand the kingdom back, grain by grain, and every tide it thinks
-      better of it and pulls the whole thing under.
-      <em>A tidewright is someone who catches the grains before the water changes its mind.</em>
+      지도가 생기기 훨씬 전, 이 해안은 하나의 나라였다. 어느 하룻밤에 가라앉았는데, 전쟁 때문이 아니라
+      스스로의 이름을 잊었기 때문이다. 바다는 가져간 것을 간직하지만 서툴게 간직한다.
+      밀물이 올 때마다 왕국을 한 알씩 돌려주려 하다가, 마음을 고쳐먹고 통째로 끌어당긴다.
+      <em>타이드라이트란 물이 마음을 바꾸기 전에 모래알을 붙잡는 사람이다.</em>
     </p>
 
     <nav class="menu-nav">
       <button class="mbtn primary" data-act="novena">
         <span class="mb-k">I</span>
-        <span class="mb-t">Begin the Novena</span>
-        <span class="mb-s">Nine tides, from morning light to the dark water</span>
+        <span class="mb-t">노베나 시작</span>
+        <span class="mb-s">아침 햇살부터 어두운 물까지, 아홉 번의 밀물</span>
       </button>
       <button class="mbtn" id="btnContinue" data-act="continue" hidden>
         <span class="mb-k">↺</span>
-        <span class="mb-t">Continue</span>
+        <span class="mb-t">이어하기</span>
         <span class="mb-s" id="continueSub">—</span>
       </button>
       <button class="mbtn" data-act="free">
         <span class="mb-k">☼</span>
-        <span class="mb-t">Slack Water</span>
-        <span class="mb-s">A whole day on the shore. No tide, no clock, every mould.</span>
+        <span class="mb-t">썰물 사이</span>
+        <span class="mb-s">해변에서 보내는 하루. 밀물도 시계도 없고, 모든 틀을 쓸 수 있다.</span>
       </button>
       <button class="mbtn" data-act="creative">
         <span class="mb-k">∞</span>
-        <span class="mb-t">Endless Sand</span>
-        <span class="mb-s">A bottomless pail and a sea that never comes in. Build.</span>
+        <span class="mb-t">끝없는 모래</span>
+        <span class="mb-s">바닥 없는 양동이, 밀려오지 않는 바다. 마음껏 지어 보자.</span>
       </button>
       <div class="menu-row">
-        <button class="mbtn small" data-act="codex"><span class="mb-t">Codex</span></button>
-        <button class="mbtn small" data-act="settings"><span class="mb-t">Settings</span></button>
-        <button class="mbtn small" data-act="howto"><span class="mb-t">How to Build</span></button>
+        <button class="mbtn small" data-act="codex"><span class="mb-t">도감</span></button>
+        <button class="mbtn small" data-act="settings"><span class="mb-t">설정</span></button>
+        <button class="mbtn small" data-act="howto"><span class="mb-t">건축 방법</span></button>
       </div>
     </nav>
 
     <footer class="menu-foot">
       <span id="menuGpu">—</span>
       <span class="dot">·</span>
-      <span>WebGL2 · no dependencies</span>
+      <span>WebGL2 · 외부 의존성 없음</span>
     </footer>
   </div>
 </div>
@@ -94,20 +96,20 @@
       <div class="tide-head">
         <div class="tide-num" id="tideNum">I</div>
         <div class="tide-id">
-          <h2 id="tideName">First Salt</h2>
-          <div class="phase" id="tidePhase"><i></i><span>EBB — the water is out</span></div>
+          <h2 id="tideName">첫 소금</h2>
+          <div class="phase" id="tidePhase"><i></i><span>썰물 — 물이 빠졌다</span></div>
         </div>
       </div>
       <div class="clockbar"><i id="clockFill"></i></div>
       <div class="clockrow"><b id="clockText">—</b><span id="clockHint"></span></div>
       <div class="pane-rule" id="objRule"></div>
       <div class="obj" id="objPanel">
-        <div class="micro">Asked of you</div>
+        <div class="micro">당신에게 요청된 일</div>
         <ul id="objList"></ul>
       </div>
     </section>
 
-    <!-- the day, in Slack Water -->
+    <!-- the day, in 썰물 사이 -->
     <section class="pane day hidden" id="dayPanel">
       <div class="day-head">
         <svg class="day-dial" viewBox="0 0 44 44" aria-hidden="true">
@@ -117,7 +119,7 @@
         </svg>
         <div>
           <div class="day-time" id="dayTime">08:00</div>
-          <div class="day-phase" id="dayPhase">morning</div>
+          <div class="day-phase" id="dayPhase">아침</div>
         </div>
       </div>
       <input type="range" id="dayScrub" min="0" max="1000" value="333">
@@ -126,32 +128,32 @@
 
     <!-- water level, docked under the tide -->
     <section class="pane gauge" id="gauge">
-      <div class="micro">Water</div>
+      <div class="micro">수위</div>
       <div class="g-track">
         <div class="g-sea" id="gSea"></div>
-        <div class="g-mark peak" id="gPeak"><span>your peak</span></div>
-        <div class="g-mark high" id="gHigh"><span>high water</span></div>
-        <div class="g-mark now"  id="gNow"><span>now</span></div>
+        <div class="g-mark peak" id="gPeak"><span>내 최고점</span></div>
+        <div class="g-mark high" id="gHigh"><span>만조</span></div>
+        <div class="g-mark now"  id="gNow"><span>현재</span></div>
       </div>
     </section>
   </div>
 
   <!-- ══ top right: what you have ══ -->
   <section class="pane work" id="statPanel">
-    <div class="micro">Remembrance</div>
+    <div class="micro">기억</div>
     <div class="score" id="scoreVal">0</div>
     <div class="pane-rule"></div>
-    <div class="micro">Pail</div>
+    <div class="micro">양동이</div>
     <div class="pail"><i id="pailFill"></i></div>
     <div class="pail-n" id="pailText">—</div>
   </section>
 
   <!-- ══ what the sand under your cursor is like ══ -->
   <div id="probeChip" class="hidden">
-    <div class="pc-verdict" id="pcVerdict">damp — good</div>
-    <div class="pc-row"><span>wet</span><i class="pc-bar"><b id="pcWet"></b><u id="pcBand"></u></i><em id="pcWetT">—</em></div>
-    <div class="pc-row pack"><span>packed</span><i class="pc-bar"><b id="pcPack"></b></i><em id="pcPackT">—</em></div>
-    <div class="pc-row depth"><span>sand</span><i class="pc-bar"><b id="pcDepth"></b></i><em id="pcDepthT">—</em></div>
+    <div class="pc-verdict" id="pcVerdict">촉촉함 — 좋음</div>
+    <div class="pc-row"><span>수분</span><i class="pc-bar"><b id="pcWet"></b><u id="pcBand"></u></i><em id="pcWetT">—</em></div>
+    <div class="pc-row pack"><span>다짐</span><i class="pc-bar"><b id="pcPack"></b></i><em id="pcPackT">—</em></div>
+    <div class="pc-row depth"><span>모래</span><i class="pc-bar"><b id="pcDepth"></b></i><em id="pcDepthT">—</em></div>
   </div>
 
   <!-- ══ bottom: the workbench ══ -->
@@ -160,33 +162,33 @@
 
     <section class="pane opts" id="optsPanel">
       <div class="opt-head">
-        <h3 id="optName">Shovel</h3>
-        <span class="opt-tag" id="optTag">takes sand</span>
-        <button class="opt-fold" id="optFold" title="Collapse (Tab)">▾</button>
+        <h3 id="optName">삽</h3>
+        <span class="opt-tag" id="optTag">모래를 푼다</span>
+        <button class="opt-fold" id="optFold" title="접기 (Tab)">▾</button>
       </div>
       <p class="opt-short" id="optShort"></p>
       <div class="opt-body">
         <div class="opt-left">
           <div id="stampOpts">
             <div class="rack" id="mouldGrid"></div>
-            <div class="mould-bar"><i id="mouldFill"></i><b id="mouldText">empty</b></div>
-            <div class="mould-hint" id="mouldHint">hold on damp sand to fill</div>
+            <div class="mould-bar"><i id="mouldFill"></i><b id="mouldText">비어 있음</b></div>
+            <div class="mould-hint" id="mouldHint">촉촉한 모래 위에서 누르고 있으면 채워진다</div>
           </div>
           <div id="adornOpts"><div class="rack wide" id="adornGrid"></div></div>
           <p class="opt-desc" id="optDesc"></p>
         </div>
         <div class="opt-right">
-          <label class="opt"><span>Size<b id="vRad">1.4 m</b></span>
+          <label class="opt"><span>크기<b id="vRad">1.4 m</b></span>
             <input type="range" id="sRad" min="20" max="400" value="140"></label>
-          <label class="opt"><span>Force<b id="vStr">60%</b></span>
+          <label class="opt"><span>세기<b id="vStr">60%</b></span>
             <input type="range" id="sStr" min="5" max="100" value="60"></label>
-          <label class="opt tho"><span>Depth<b id="vTh">1.5 m</b></span>
+          <label class="opt tho"><span>깊이<b id="vTh">1.5 m</b></span>
             <input type="range" id="sTh" min="20" max="320" value="150"></label>
-          <label class="opt tho"><span>Merlons<b id="vCr">9</b></span>
+          <label class="opt tho"><span>성가퀴<b id="vCr">9</b></span>
             <input type="range" id="sCr" min="0" max="16" value="9"></label>
           <div class="opt-keys">
-            <span><kbd>Z</kbd>undo</span><span><kbd>[</kbd><kbd>]</kbd>size</span>
-            <span><kbd>,</kbd><kbd>.</kbd>turn</span>
+            <span><kbd>Z</kbd>되돌리기</span><span><kbd>[</kbd><kbd>]</kbd>크기</span>
+            <span><kbd>,</kbd><kbd>.</kbd>회전</span>
           </div>
         </div>
       </div>
@@ -204,28 +206,28 @@
 <!-- ══════════════════════════════ BRIEFING ══════════════════════════════ -->
 <div id="brief" class="screen hidden">
   <div class="card brief-card">
-    <div class="brief-num" id="bNum">TIDE I</div>
-    <h2 id="bName">First Salt</h2>
+    <div class="brief-num" id="bNum">첫 번째 밀물</div>
+    <h2 id="bName">첫 소금</h2>
     <p class="brief-verse" id="bVerse"></p>
     <div class="brief-cols">
       <div>
-        <div class="bh">The water will reach</div>
+        <div class="bh">물이 닿는 높이</div>
         <div class="bv" id="bReach">—</div>
       </div>
       <div>
-        <div class="bh">You have</div>
+        <div class="bh">주어진 시간</div>
         <div class="bv" id="bTime">—</div>
       </div>
       <div>
-        <div class="bh">Light</div>
+        <div class="bh">빛</div>
         <div class="bv" id="bLight">—</div>
       </div>
     </div>
     <div class="brief-obj">
-      <div class="bh">Asked of you</div>
+      <div class="bh">당신에게 요청된 일</div>
       <ul id="bObj"></ul>
     </div>
-    <button class="cbtn primary" id="bGo">Take up the pail</button>
+    <button class="cbtn primary" id="bGo">양동이를 들자</button>
   </div>
 </div>
 
@@ -233,14 +235,14 @@
 <div id="summary" class="screen hidden">
   <div class="card sum-card">
     <div class="sum-grade" id="sGrade">A</div>
-    <h2 id="sTitle">The water has gone back out.</h2>
+    <h2 id="sTitle">물이 다시 빠져나갔다.</h2>
     <p class="sum-line" id="sLine"></p>
     <div class="sum-stats" id="sStats"></div>
     <div class="sum-obj" id="sObj"></div>
     <div class="sum-actions">
-      <button class="cbtn primary" id="sNext">Next tide</button>
-      <button class="cbtn" id="sRetry">Rebuild this tide</button>
-      <button class="cbtn ghost" id="sMenu">Leave the shore</button>
+      <button class="cbtn primary" id="sNext">다음 밀물</button>
+      <button class="cbtn" id="sRetry">이 밀물 다시 하기</button>
+      <button class="cbtn ghost" id="sMenu">해변을 떠나기</button>
     </div>
   </div>
 </div>
@@ -248,53 +250,53 @@
 <!-- ══════════════════════════════ CODEX ══════════════════════════════ -->
 <div id="codex" class="screen hidden">
   <div class="card codex-card">
-    <h2 class="ctitle">The Tidewright's Primer</h2>
+    <h2 class="ctitle">타이드라이트 입문서</h2>
     <div class="codex-body">
       <ul class="codex-list" id="codexList"></ul>
       <div class="codex-read" id="codexRead">
-        <div class="cr-empty">Select an entry.</div>
+        <div class="cr-empty">항목을 선택하세요.</div>
       </div>
     </div>
-    <button class="cbtn ghost close" data-close>Close</button>
+    <button class="cbtn ghost close" data-close>닫기</button>
   </div>
 </div>
 
 <!-- ══════════════════════════════ SETTINGS ══════════════════════════════ -->
 <div id="settings" class="screen hidden">
   <div class="card set-card">
-    <h2 class="ctitle">Settings</h2>
+    <h2 class="ctitle">설정</h2>
     <div class="set-grid">
       <div class="setrow look">
-        <span>Look</span>
+        <span>화면 분위기</span>
         <div class="look-pick" id="lookPick"></div>
       </div>
-      <label class="setrow"><span>Quality</span>
+      <label class="setrow"><span>품질</span>
         <select id="qQuality">
-          <option value="low">Low — 256 sim, no shadows</option>
-          <option value="med">Medium — 384 sim</option>
-          <option value="high" selected>High — 512 sim</option>
-          <option value="ultra">Ultra — 640 sim, 1.35× supersample</option>
+          <option value="low">낮음 — 시뮬 256, 그림자 없음</option>
+          <option value="med">중간 — 시뮬 384</option>
+          <option value="high" selected>높음 — 시뮬 512</option>
+          <option value="ultra">최고 — 시뮬 640, 1.35배 슈퍼샘플</option>
         </select></label>
-      <label class="setrow"><span>Render scale <b id="vScale">100%</b></span>
+      <label class="setrow"><span>렌더 배율 <b id="vScale">100%</b></span>
         <input type="range" id="qScale" min="50" max="160" value="100"></label>
-      <label class="setrow"><span>Field of view <b id="vFov">52°</b></span>
+      <label class="setrow"><span>시야각 <b id="vFov">52°</b></span>
         <input type="range" id="qFov" min="35" max="80" value="52"></label>
-      <label class="setrow"><span>Bloom <b id="vBloom">60%</b></span>
+      <label class="setrow"><span>블룸 <b id="vBloom">60%</b></span>
         <input type="range" id="qBloom" min="0" max="150" value="60"></label>
-      <label class="setrow"><span>Film grain <b id="vGrain">35%</b></span>
+      <label class="setrow"><span>필름 그레인 <b id="vGrain">35%</b></span>
         <input type="range" id="qGrain" min="0" max="100" value="35"></label>
-      <label class="setrow check"><span>Sand glitter (mica)</span><input type="checkbox" id="qGlint" checked></label>
-      <label class="setrow check"><span>Shadows</span><input type="checkbox" id="qShadow" checked></label>
-      <label class="setrow check"><span>Sun shafts</span><input type="checkbox" id="qShafts" checked></label>
-      <label class="setrow check"><span>Invert orbit Y</span><input type="checkbox" id="qInvY"></label>
-      <label class="setrow"><span>Master volume <b id="vVol">70%</b></span>
+      <label class="setrow check"><span>모래 반짝임 (운모)</span><input type="checkbox" id="qGlint" checked></label>
+      <label class="setrow check"><span>그림자</span><input type="checkbox" id="qShadow" checked></label>
+      <label class="setrow check"><span>빛줄기</span><input type="checkbox" id="qShafts" checked></label>
+      <label class="setrow check"><span>궤도 Y축 반전</span><input type="checkbox" id="qInvY"></label>
+      <label class="setrow"><span>마스터 볼륨 <b id="vVol">70%</b></span>
         <input type="range" id="qVol" min="0" max="100" value="70"></label>
-      <label class="setrow"><span>Music <b id="vMus">55%</b></span>
+      <label class="setrow"><span>음악 <b id="vMus">55%</b></span>
         <input type="range" id="qMus" min="0" max="100" value="55"></label>
     </div>
     <div class="set-actions">
-      <button class="cbtn ghost" id="setWipe">Erase all progress</button>
-      <button class="cbtn primary" data-close>Done</button>
+      <button class="cbtn ghost" id="setWipe">모든 진행 상황 지우기</button>
+      <button class="cbtn primary" data-close>완료</button>
     </div>
   </div>
 </div>
@@ -302,64 +304,62 @@
 <!-- ══════════════════════════════ HOW TO ══════════════════════════════ -->
 <div id="howto" class="screen hidden">
   <div class="card how-card">
-    <h2 class="ctitle">How to Build</h2>
+    <h2 class="ctitle">건축 방법</h2>
     <div class="how-grid">
       <section>
-        <h3>The one law</h3>
-        <p><b>Dry sand cannot stand.</b> Every grain has an angle it refuses to exceed. Dry, that angle
-        is about 33° — a slope, never a wall. Wet it and the water bridges the grains: you can go past
-        vertical. Wet it <i>too</i> much and it liquefies and runs. The sweet spot is damp, not soaked.</p>
-        <p>Then <b>pat it</b>. Compaction is the second half of strength — packed sand resists both
-        collapse and the sea. A patted, damp wall will outlive an unpacked one by whole tides.</p>
+        <h3>단 하나의 법칙</h3>
+        <p><b>마른 모래는 서 있을 수 없다.</b> 모래알마다 넘지 못하는 각도가 있다. 마른 모래의 각도는
+        약 33°로, 비탈은 되어도 벽은 되지 못한다. 물을 적시면 물이 알갱이들을 이어 주어 수직을 넘어서도
+        쌓을 수 있다. 하지만 <i>너무</i> 적시면 액체처럼 흘러내린다. 알맞은 상태는 젖은 것이 아니라 촉촉한 것이다.</p>
+        <p>그다음 <b>다져라</b>. 다짐은 강도의 나머지 절반이다. 다진 모래는 붕괴와 바다 모두에 잘 버틴다.
+        촉촉하게 다진 벽은 다지지 않은 벽보다 밀물 몇 번은 더 오래간다.</p>
       </section>
       <section>
-        <h3>The pail</h3>
-        <p>Sand is conserved. Digging fills your pail; pouring empties it. You are not making sand —
-        you are moving the coast around. Dig your moat <i>where you want a moat</i> and the spoil
-        becomes your keep.</p>
+        <h3>양동이</h3>
+        <p>모래의 양은 변하지 않는다. 파면 양동이가 차고 부으면 비워진다. 모래를 만드는 것이 아니라
+        해안을 옮기는 것이다. 해자는 <i>해자가 필요한 곳</i>에 파라. 파낸 흙이 성의 본채가 된다.</p>
       </section>
       <section>
-        <h3>The sea</h3>
-        <p>Waves break where the water goes thin, and they eat the base first. Undermine a wall and the
-        wall falls on its own — that is the simulation, not a script. A <b>moat</b> spends a wave's
-        energy; a <b>seawall</b> (a long, low, packed berm on the seaward side) turns it. Build both.</p>
-        <p>Water flows downhill and carries sand with it. A moat that drains landward will carve your
-        own castle out from under you.</p>
+        <h3>바다</h3>
+        <p>파도는 물이 얕아지는 곳에서 부서지고 밑동부터 갉아먹는다. 벽 밑이 파이면 벽은 저절로 무너진다.
+        연출이 아니라 시뮬레이션이다. <b>해자</b>는 파도의 힘을 소모시키고, <b>방파제</b>(바다 쪽에 길고 낮게 다져 쌓은 둑)는
+        파도를 돌려보낸다. 둘 다 지어라.</p>
+        <p>물은 낮은 곳으로 흐르며 모래를 실어 간다. 육지 쪽으로 물이 빠지는 해자는 성 밑을 파내 버린다.</p>
       </section>
       <section>
-        <h3>Controls</h3>
+        <h3>조작법</h3>
         <table class="keys">
-          <tr><td>Left mouse</td><td>use tool</td></tr>
-          <tr><td>Right / middle drag</td><td>orbit · pan</td></tr>
-          <tr><td>Wheel</td><td>zoom</td></tr>
-          <tr><td>W A S D · Q E</td><td>pan · rotate</td></tr>
-          <tr><td>1 – 9 , 0</td><td>select tool</td></tr>
-          <tr><td>[ ]</td><td>brush radius</td></tr>
-          <tr><td>Shift</td><td>fine / precise</td></tr>
-          <tr><td>Z</td><td>undo stroke</td></tr>
-          <tr><td>R</td><td>call the tide early</td></tr>
-          <tr><td>P</td><td>photo mode</td></tr>
-          <tr><td>H</td><td>hide interface</td></tr>
-          <tr><td>Esc</td><td>pause</td></tr>
+          <tr><td>마우스 왼쪽</td><td>도구 사용</td></tr>
+          <tr><td>오른쪽 / 가운데 드래그</td><td>회전 · 이동</td></tr>
+          <tr><td>휠</td><td>확대/축소</td></tr>
+          <tr><td>W A S D · Q E</td><td>이동 · 회전</td></tr>
+          <tr><td>1 – 9 , 0</td><td>도구 선택</td></tr>
+          <tr><td>[ ]</td><td>브러시 반경</td></tr>
+          <tr><td>Shift</td><td>정밀 조작</td></tr>
+          <tr><td>Z</td><td>직전 작업 되돌리기</td></tr>
+          <tr><td>R</td><td>밀물 앞당기기</td></tr>
+          <tr><td>P</td><td>사진 모드</td></tr>
+          <tr><td>H</td><td>인터페이스 숨기기</td></tr>
+          <tr><td>Esc</td><td>일시정지</td></tr>
         </table>
       </section>
     </div>
-    <button class="cbtn primary close" data-close>Understood</button>
+    <button class="cbtn primary close" data-close>알겠습니다</button>
   </div>
 </div>
 
 <!-- ══════════════════════════════ PAUSE ══════════════════════════════ -->
 <div id="pause" class="screen hidden">
   <div class="card pause-card">
-    <h2 class="ctitle">Slack</h2>
-    <p class="pause-sub" id="pauseSub">The shore waits.</p>
+    <h2 class="ctitle">잠시 멈춤</h2>
+    <p class="pause-sub" id="pauseSub">해변이 기다린다.</p>
     <div class="pause-actions">
-      <button class="cbtn primary" id="pResume">Resume</button>
-      <button class="cbtn" id="pSave">Save castle</button>
-      <button class="cbtn" id="pLoad">Load castle</button>
-      <button class="cbtn" id="pSettings">Settings</button>
-      <button class="cbtn" id="pCodex">Codex</button>
-      <button class="cbtn ghost" id="pQuit">Leave the shore</button>
+      <button class="cbtn primary" id="pResume">계속하기</button>
+      <button class="cbtn" id="pSave">성 저장</button>
+      <button class="cbtn" id="pLoad">성 불러오기</button>
+      <button class="cbtn" id="pSettings">설정</button>
+      <button class="cbtn" id="pCodex">도감</button>
+      <button class="cbtn ghost" id="pQuit">해변을 떠나기</button>
     </div>
   </div>
 </div>
@@ -367,25 +367,25 @@
 <!-- ══════════════════════════════ PHOTO ══════════════════════════════ -->
 <div id="photo" class="hidden">
   <div class="pane photo-panel">
-    <div class="opt-h">Photo</div>
-    <label class="opt"><span>Sun elevation <b id="vSun">—</b></span><input type="range" id="pSun" min="-200" max="800" value="300"></label>
-    <label class="opt"><span>Sun azimuth <b id="vAz">—</b></span><input type="range" id="pAz" min="0" max="360" value="120"></label>
-    <label class="opt"><span>Exposure <b id="vExp">1.0</b></span><input type="range" id="pExp" min="20" max="400" value="100"></label>
-    <label class="opt"><span>Focus <b id="vFoc">—</b></span><input type="range" id="pFoc" min="0" max="100" value="45"></label>
-    <label class="opt"><span>Aperture <b id="vApt">0.0</b></span><input type="range" id="pApt" min="0" max="100" value="0"></label>
+    <div class="opt-h">사진</div>
+    <label class="opt"><span>태양 고도 <b id="vSun">—</b></span><input type="range" id="pSun" min="-200" max="800" value="300"></label>
+    <label class="opt"><span>태양 방위 <b id="vAz">—</b></span><input type="range" id="pAz" min="0" max="360" value="120"></label>
+    <label class="opt"><span>노출 <b id="vExp">1.0</b></span><input type="range" id="pExp" min="20" max="400" value="100"></label>
+    <label class="opt"><span>초점 <b id="vFoc">—</b></span><input type="range" id="pFoc" min="0" max="100" value="45"></label>
+    <label class="opt"><span>조리개 <b id="vApt">0.0</b></span><input type="range" id="pApt" min="0" max="100" value="0"></label>
     <div class="photo-actions">
-      <button class="cbtn small" id="pShot">Capture ⌘</button>
-      <button class="cbtn small ghost" id="pExit">Exit (P)</button>
+      <button class="cbtn small" id="pShot">촬영 ⌘</button>
+      <button class="cbtn small ghost" id="pExit">나가기 (P)</button>
     </div>
   </div>
 </div>
 
 <div id="fatal" class="screen hidden">
   <div class="card">
-    <h2 class="ctitle">The shore did not open</h2>
+    <h2 class="ctitle">해변이 열리지 않았다</h2>
     <p id="fatalMsg" class="sum-line"></p>
-    <p class="sum-line dim">TIDEWRIGHT needs WebGL2 with floating-point render targets. Try a recent
-    Chrome, Edge or Firefox on a machine with a discrete or modern integrated GPU.</p>
+    <p class="sum-line dim">TIDEWRIGHT는 부동소수점 렌더 타깃을 지원하는 WebGL2가 필요합니다. 외장 GPU 또는 최신 내장 GPU가 있는 기기에서
+    최신 Chrome, Edge, Firefox로 열어 보세요.</p>
   </div>
 </div>
 
